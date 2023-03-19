@@ -2,6 +2,7 @@ import { Combobox, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { BsChevronExpand } from "react-icons/bs";
 import { HiCheck } from "react-icons/hi";
+import React from "react";
 
 const banks = [
   { id: 1, name: "Ghazanfar Bank" },
