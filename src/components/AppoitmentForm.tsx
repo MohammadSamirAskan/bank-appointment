@@ -1,11 +1,10 @@
 import React from "react";
+import { AppointmentObj } from "../App";
+import config from "../config";
 import BankComboBox from "./BankComboBox";
 import Button from "./Buttons";
-import Input from "./Input";
-import { HiExclamation } from "react-icons/hi";
-import config from "../config";
-import { AppointmentObj } from "../App";
 import ErrorMessage from "./ErrorMessage";
+import Input from "./Input";
 
 function AppointmentForm({ onSubmit }: { onSubmit: (appNo: number) => void }) {
   const [firstName, setFirstname] = React.useState("");
