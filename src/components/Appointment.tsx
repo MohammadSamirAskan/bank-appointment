@@ -67,7 +67,7 @@ export function Appointment() {
     if (qrRef.current && storedBooking?.nationalId) {
       toCanvas(
         qrRef.current,
-        `Appointment Number: ${storedBooking.appointmentNo}\nName: ${storedBooking?.firstName} ${storedBooking?.surname}\nNational ID: ${storedBooking?.nationalId}\nBank: ${storedBooking?.selectedBank.name}\nDate: ${bookingDate} ${bookingTime}
+        `Appointment Number: ${storedBooking.appointmentNo}\nName: ${storedBooking?.firstName} ${storedBooking?.surname}\nNational ID: ${storedBooking?.nationalId}\nBank: ${storedBooking?.selectedBank.name}\nTranfer Type: ${storedBooking?.tranferType.name}\nDate: ${bookingDate} ${bookingTime}
       `,
         (err) => {
           if (err) console.log(err);
@@ -83,6 +83,7 @@ export function Appointment() {
     storedBooking?.nationalId,
     storedBooking?.selectedBank.name,
     storedBooking?.surname,
+    storedBooking?.tranferType.name,
   ]);
 
   if (storedBooking == null) {
@@ -116,6 +117,11 @@ export function Appointment() {
           <div className="w-full grid grid-cols-2 grid-rows-1 items-center border-b-[1px] border-appGray py-2">
             <div className="font-semibold">Bank:</div>
             <div>{storedBooking?.selectedBank.name}</div>
+          </div>
+
+          <div className="w-full grid grid-cols-2 grid-rows-1 items-center border-b-[1px] border-appGray py-2">
+            <div className="font-semibold">Transfer Type:</div>
+            <div>{storedBooking?.tranferType.name}</div>
           </div>
 
           <div className="w-full grid grid-cols-2 grid-rows-1 items-center border-b-[1px] border-appGray py-2">
@@ -171,6 +177,7 @@ function isValidBooking(currentBooking?: AppointmentObj | null) {
       currentBooking.firstName &&
       currentBooking.surname &&
       currentBooking.selectedBank?.id &&
+      currentBooking.tranferType &&
       currentBooking.selectedBank?.name &&
       currentBooking.nationalId
   );
