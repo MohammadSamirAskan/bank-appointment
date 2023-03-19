@@ -5,12 +5,17 @@ import BankComboBox from "./BankComboBox";
 import Button from "./Buttons";
 import ErrorMessage from "./ErrorMessage";
 import Input from "./Input";
+import TransferComboBox from "./TransferComboBox";
 
 function AppointmentForm({ onSubmit }: { onSubmit: (appNo: number) => void }) {
   const [firstName, setFirstname] = React.useState("");
   const [surname, setSurname] = React.useState("");
   const [nationalId, setNationalId] = React.useState("");
   const [selectedBank, setSelectedBank] = React.useState({ id: 0, name: "" });
+  const [selectedTransfer, setSelectedTransfer] = React.useState({
+    id: 0,
+    name: "",
+  });
   const [error, setError] = React.useState("");
   const [lastAppNo, setLastAppNo] = React.useState(() => {
     let newAppNo = 100;
@@ -100,6 +105,7 @@ function AppointmentForm({ onSubmit }: { onSubmit: (appNo: number) => void }) {
               firstName,
               surname,
               selectedBank,
+              tranferType: selectedTransfer,
               nationalId,
               date: appointmentDate,
               hour: appointmentHours,
@@ -137,6 +143,7 @@ function AppointmentForm({ onSubmit }: { onSubmit: (appNo: number) => void }) {
               appointmentNo: appointmentNum,
               firstName,
               surname,
+              tranferType: selectedTransfer,
               selectedBank,
               nationalId,
               date: appointmentDate,
@@ -192,6 +199,13 @@ function AppointmentForm({ onSubmit }: { onSubmit: (appNo: number) => void }) {
 
       <div>
         <BankComboBox selected={selectedBank} setSelected={setSelectedBank} />
+      </div>
+
+      <div>
+        <TransferComboBox
+          selected={selectedTransfer}
+          setSelected={setSelectedTransfer}
+        />
       </div>
 
       {error && <ErrorMessage message={error} />}
