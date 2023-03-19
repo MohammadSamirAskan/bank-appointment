@@ -3,8 +3,8 @@ import html2canvas from "html2canvas";
 import { toCanvas } from "qrcode";
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { AppointmentObj } from "../App";
 import config from "../config";
+import { AppointmentObj } from "../types";
 import Button from "./Buttons";
 
 export function Appointment() {

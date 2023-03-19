@@ -4,19 +4,6 @@ import "./App.css";
 import Header from "./components/Header";
 import SearchForm from "./components/SearchForm";
 
-export type AppointmentObj = {
-  appointmentNo: number;
-  firstName: string;
-  surname: string;
-  selectedBank: {
-    id: number;
-    name: string;
-  };
-  nationalId: string;
-  date: number;
-  hour: number;
-};
-
 function App() {
   const { bookingNo } = useParams();
   const [query, setQuery] = React.useState(bookingNo || "");

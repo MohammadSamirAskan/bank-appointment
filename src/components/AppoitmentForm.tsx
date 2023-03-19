@@ -1,5 +1,5 @@
 import React from "react";
-import { AppointmentObj } from "../App";
+import { AppointmentObj } from "../types";
 import config from "../config";
 import BankComboBox from "./BankComboBox";
 import Button from "./Buttons";
