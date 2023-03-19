@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Lobster;
+    src: url(./Lobster-Regular.ttf);
+}
+
+.Header {
+    font-family: Lobster;
+}
